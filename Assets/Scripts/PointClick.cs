@@ -15,6 +15,11 @@ public class PointAndClick : MonoBehaviour
 
     void Update()
     {
+        PlayerClick();
+    }
+
+    void PlayerClick()
+    {
         // Si se clickea el mouse
         if (Input.GetMouseButtonDown(0))
         {
