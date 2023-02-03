@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PointAndClick : MonoBehaviour
+public class PointClick : MonoBehaviour
 {
     // Referencia a la camara
     private Camera cam;
