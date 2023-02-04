@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System;
 
 public class ChangeScene : MonoBehaviour
 {
@@ -12,6 +13,46 @@ public class ChangeScene : MonoBehaviour
     Scene currentScene;
 
     public static ChangeScene _instance;
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        MusicManager.sfxList.Clear();
+
+        if (scene.name == MAIN_MENU)
+        {
+            if (MusicManager._instance.GetMusic() == "Intro")
+            MusicManager.sfxList.Add(GameObject.Find("StartButton").GetComponent<AudioSource>());
+            MusicManager.sfxList.Add(GameObject.Find("OptionsButton").GetComponent<AudioSource>());
+            MusicManager.sfxList.Add(GameObject.Find("CreditsButton").GetComponent<AudioSource>());
+            MusicManager.sfxList.Add(GameObject.Find("ExitGameButton").GetComponent<AudioSource>());
+        }
+
+        if(scene.name == MAIN_GAME)
+        {
+            MusicManager._instance.SetMusic(MusicManager._instance.Gameplay);
+        }
+
+        if(scene.name == CREDITS)
+        {
+            MusicManager.sfxList.Add(GameObject.Find("MainMenuButton").GetComponent<AudioSource>());
+            MusicManager.sfxList.Add(GameObject.Find("ExitButton").GetComponent<AudioSource>());
+        }
+
+        if(scene.name == OPTIONS)
+        {
+            MusicManager.sfxList.Add(GameObject.Find("MainMenuButton").GetComponent<AudioSource>());
+        }
+    }
 
     private void Awake()
     {
@@ -29,7 +70,7 @@ public class ChangeScene : MonoBehaviour
     public void Change_To_Main_Menu()
     {
         SceneManager.LoadScene(MAIN_MENU);
-        currentScene = SceneManager.GetSceneByName(MAIN_MENU);        
+        currentScene = SceneManager.GetSceneByName(MAIN_MENU);
     }
 
     public void Change_To_Main_Game()
