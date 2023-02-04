@@ -1,10 +1,15 @@
+using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PopUpController : MonoBehaviour
 {
     public Canvas popUpCanvas;
-    public Text descriptionText;
+    public TMP_Text descriptionText;
+    public float timeSpan = 0f;
+    public string message;
 
     void Start()
     {
@@ -12,11 +17,25 @@ public class PopUpController : MonoBehaviour
         popUpCanvas.gameObject.SetActive(false);
     }
 
+    private void Update()
+    {
+        if(Input.GetMouseButton(1) && popUpCanvas.isActiveAndEnabled)
+        {
+            StartCoroutine(Hide());
+        }
+    }
+
+    private IEnumerator Hide()
+    {
+        yield return new WaitForSeconds(timeSpan);
+        popUpCanvas.gameObject.SetActive(false);
+    }
+
     void OnMouseDown()
     {
         // mostramos el canvas y establecemos la descripcion
         popUpCanvas.gameObject.SetActive(true);
-        descriptionText.text = "Escribir texto a mostrar";
+        descriptionText.text = message;
     }
 }
 
