@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
     {
         GameObject newObject = new GameObject(go.name);
         newObject.AddComponent<Image>().sprite = go.GetComponent<SpriteRenderer>().sprite;
-        newObject.AddComponent<Image>().color = go.GetComponent<SpriteRenderer>().color;
+        newObject.GetComponent<Image>().color = go.GetComponent<SpriteRenderer>().color;
         newObject.transform.SetParent(myInventoryUI.transform);
     }
 }
