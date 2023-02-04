@@ -8,10 +8,10 @@ public class VolumeControl : MonoBehaviour
     [SerializeField] Slider MusicSlider;
     [SerializeField] Slider SFXSlider;
 
-    private void Awake()
+    private void Start()
     {
         MusicSlider.value = MusicManager._instance.GetMusicValue();
-        SFXSlider.value = MusicManager._instance.GetSFXValue();
+        SFXSlider.value = MusicManager._instance.GetSFXValue();        
     }
     public void ChangeMusicValue()
     {
