@@ -1,28 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public List<string> items = new List<string>();
+    public static Inventory Instance;
+    public static List<GameObject> myInventory = new List<GameObject>();
+    public GameObject myInventoryUI;
 
-    public void AddItem(string item)
+    private void Awake()
     {
-        //agrega items
-        items.Add(item);
-        Debug.Log("Item Added: " + item);
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance= this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
-    public void RemoveItem(string item)
+    public void Add(GameObject go)
     {
-        //remueve items
-        items.Remove(item);
-        Debug.Log("Item Removed: " + item);
+        myInventory.Add(go);
+        AddObjectToInventoryUI(go);
     }
 
-    public bool HasItem(string item)
+    private void AddObjectToInventoryUI(GameObject go)
     {
-        //informa items
-        return items.Contains(item);
+        GameObject newObject = new GameObject(go.name);
+        newObject.AddComponent<Image>().sprite = go.GetComponent<SpriteRenderer>().sprite;
+        newObject.AddComponent<Image>().color = go.GetComponent<SpriteRenderer>().color;
+        newObject.transform.SetParent(myInventoryUI.transform);
     }
 }
