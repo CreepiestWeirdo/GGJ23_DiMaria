@@ -8,6 +8,7 @@ public class ChangeScene : MonoBehaviour
     private readonly string MAIN_MENU = "MAIN_MENU";
     private readonly string MAIN_GAME = "MAIN_GAME";
     private readonly string CREDITS = "CREDITS";
+    private readonly string OPTIONS = "OPTIONS";
     Scene currentScene;
 
     public static ChangeScene _instance;
@@ -28,7 +29,7 @@ public class ChangeScene : MonoBehaviour
     public void Change_To_Main_Menu()
     {
         SceneManager.LoadScene(MAIN_MENU);
-        currentScene = SceneManager.GetSceneByName(MAIN_MENU);
+        currentScene = SceneManager.GetSceneByName(MAIN_MENU);        
     }
 
     public void Change_To_Main_Game()
@@ -41,6 +42,11 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(CREDITS);
         currentScene = SceneManager.GetSceneByName(CREDITS);
+    }
+    public void Change_To_Options()
+    {
+        SceneManager.LoadScene(OPTIONS);
+        currentScene = SceneManager.GetSceneByName(OPTIONS);
     }
 
     public void ResetScene()
