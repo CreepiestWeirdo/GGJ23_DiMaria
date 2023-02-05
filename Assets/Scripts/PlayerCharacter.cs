@@ -18,7 +18,7 @@ public class PlayerCharacter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Player collided with " + other.gameObject.name),
+        Debug.Log("Player collided with " + other.gameObject.name);
     }
 
 }
