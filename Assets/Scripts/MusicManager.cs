@@ -6,7 +6,6 @@ public class MusicManager : MonoBehaviour
 {
     private AudioSource audioSource;
     public static MusicManager _instance;
-    public List<AudioSource> sfxList = new List<AudioSource>();
 
     private readonly float defaultVolume = 1f;
 
@@ -34,12 +33,7 @@ public class MusicManager : MonoBehaviour
 
     public void SetSFXValue(float value)
     {
-        currentSFXValue = value;
-
-        for (int i = 0; i < sfxList.Count; i++)
-        {
-            sfxList[i].volume = value * value;
-        }              
+        currentSFXValue = value;            
     }
 
     private void Awake()
@@ -52,11 +46,6 @@ public class MusicManager : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
-
-            foreach (var sfx in sfxList)
-            {
-                sfx.volume = GetSFXValue();
-            }
         }
 
         audioSource = GetComponent<AudioSource>();
