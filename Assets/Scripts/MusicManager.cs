@@ -6,14 +6,15 @@ public class MusicManager : MonoBehaviour
 {
     private AudioSource audioSource;
     public static MusicManager _instance;
-    public static List<AudioSource> sfxList = new List<AudioSource>();
+    public List<AudioSource> sfxList = new List<AudioSource>();
 
     private readonly float defaultVolume = 1f;
 
     private float currentMusicValue = 1f;
     private float currentSFXValue = 1f;
 
-    public AudioClip Gameplay;
+    public AudioClip GameplayMusic;
+    public AudioClip IntroMusic;
 
     public float GetMusicValue()
     {
@@ -35,9 +36,9 @@ public class MusicManager : MonoBehaviour
     {
         currentSFXValue = value;
 
-        foreach (var sfx in sfxList)
+        for (int i = 0; i < sfxList.Count; i++)
         {
-            sfx.volume = value * value;
+            sfxList[i].volume = value * value;
         }              
     }
 
@@ -67,7 +68,7 @@ public class MusicManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public string GetMusic()
+    public string GetMusicName()
     {
         return audioSource.clip.name;
     }
