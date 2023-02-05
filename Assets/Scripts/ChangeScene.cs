@@ -26,32 +26,35 @@ public class ChangeScene : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        MusicManager.sfxList.Clear();
+        //MusicManager._instance.sfxList.Clear();
 
         if (scene.name == MAIN_MENU)
-        {
-            if (MusicManager._instance.GetMusic() == "Intro")
-            MusicManager.sfxList.Add(GameObject.Find("StartButton").GetComponent<AudioSource>());
-            MusicManager.sfxList.Add(GameObject.Find("OptionsButton").GetComponent<AudioSource>());
-            MusicManager.sfxList.Add(GameObject.Find("CreditsButton").GetComponent<AudioSource>());
-            MusicManager.sfxList.Add(GameObject.Find("ExitGameButton").GetComponent<AudioSource>());
+        {     
+            if(MusicManager._instance.GetMusicName() != "Intro")
+            {
+                MusicManager._instance.SetMusic(MusicManager._instance.IntroMusic);
+            }
+        //    MusicManager._instance.sfxList.Add(GameObject.Find("StartButton").GetComponent<AudioSource>());
+        //    MusicManager._instance.sfxList.Add(GameObject.Find("OptionsButton").GetComponent<AudioSource>());
+        //    MusicManager._instance.sfxList.Add(GameObject.Find("CreditsButton").GetComponent<AudioSource>());
+        //    MusicManager._instance.sfxList.Add(GameObject.Find("ExitGameButton").GetComponent<AudioSource>());
         }
 
         if(scene.name == MAIN_GAME)
         {
-            MusicManager._instance.SetMusic(MusicManager._instance.Gameplay);
+            MusicManager._instance.SetMusic(MusicManager._instance.GameplayMusic);
         }
 
-        if(scene.name == CREDITS)
-        {
-            MusicManager.sfxList.Add(GameObject.Find("MainMenuButton").GetComponent<AudioSource>());
-            MusicManager.sfxList.Add(GameObject.Find("ExitButton").GetComponent<AudioSource>());
-        }
+        //if(scene.name == CREDITS)
+        //{
+        //    MusicManager._instance.sfxList.Add(GameObject.Find("MainMenuButton").GetComponent<AudioSource>());
+        //    MusicManager._instance.sfxList.Add(GameObject.Find("ExitButton").GetComponent<AudioSource>());
+        //}
 
-        if(scene.name == OPTIONS)
-        {
-            MusicManager.sfxList.Add(GameObject.Find("MainMenuButton").GetComponent<AudioSource>());
-        }
+        //if(scene.name == OPTIONS)
+        //{
+        //    MusicManager._instance.sfxList.Add(GameObject.Find("MainMenuButton").GetComponent<AudioSource>());
+        //}
     }
 
     private void Awake()

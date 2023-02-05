@@ -11,7 +11,7 @@ public class VolumeControl : MonoBehaviour
     private void Start()
     {
         MusicSlider.value = MusicManager._instance.GetMusicValue();
-        SFXSlider.value = MusicManager._instance.GetSFXValue();        
+       // SFXSlider.value = MusicManager._instance.GetSFXValue();        
     }
     public void ChangeMusicValue()
     {
@@ -20,6 +20,6 @@ public class VolumeControl : MonoBehaviour
 
     public void ChangeSFXValue()
     {
-        MusicManager._instance.SetSFXValue(SFXSlider.value);
+       // MusicManager._instance.SetSFXValue(SFXSlider.value);
     }
 }

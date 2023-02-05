@@ -143,8 +143,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 7e8e6c75b1992c146a0a4d79ab69a7af, type: 3}
     - target: {fileID: 3370131402865415124, guid: 3637421d30ddf3342929a3c42191129b, type: 3}
+      propertyPath: IntroMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: c584a9ff9fe56304e9f9bc3e3ddb330d, type: 3}
+    - target: {fileID: 3370131402865415124, guid: 3637421d30ddf3342929a3c42191129b, type: 3}
+      propertyPath: GameplayMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e8e6c75b1992c146a0a4d79ab69a7af, type: 3}
+    - target: {fileID: 3370131402865415124, guid: 3637421d30ddf3342929a3c42191129b, type: 3}
       propertyPath: sfxList.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3370131402865415124, guid: 3637421d30ddf3342929a3c42191129b, type: 3}
       propertyPath: sfxList.Array.data[0]
@@ -153,11 +161,11 @@ PrefabInstance:
     - target: {fileID: 3370131402865415124, guid: 3637421d30ddf3342929a3c42191129b, type: 3}
       propertyPath: sfxList.Array.data[1]
       value: 
-      objectReference: {fileID: 1046476202}
+      objectReference: {fileID: 611032646}
     - target: {fileID: 3370131402865415124, guid: 3637421d30ddf3342929a3c42191129b, type: 3}
       propertyPath: sfxList.Array.data[2]
       value: 
-      objectReference: {fileID: 1503398160}
+      objectReference: {fileID: 611032646}
     - target: {fileID: 3370131402865415124, guid: 3637421d30ddf3342929a3c42191129b, type: 3}
       propertyPath: sfxList.Array.data[3]
       value: 
