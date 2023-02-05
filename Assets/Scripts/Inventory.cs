@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
@@ -34,6 +35,12 @@ public class Inventory : MonoBehaviour
         GameObject newObject = new GameObject(go.name);
         newObject.AddComponent<Image>().sprite = go.GetComponent<SpriteRenderer>().sprite;
         newObject.GetComponent<Image>().color = go.GetComponent<SpriteRenderer>().color;
+        newObject.transform.localScale = new Vector3(0.03f,0.03f,0f);
         newObject.transform.SetParent(myInventoryUI.transform);
+
+        if(myInventory.Count == 3)
+        {
+            ChangeScene._instance.Change_To_Credits_After_Three_Seconds();
+        }
     }
 }

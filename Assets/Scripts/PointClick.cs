@@ -7,6 +7,11 @@ public class PointClick : MonoBehaviour
     // Referencia a la camara
     private Camera cam;
 
+    [SerializeField] float speed;
+    [SerializeField] float minDistanceInteractive = 2f;
+
+
+
     void Start()
     {
         // Obtiene el componente
@@ -33,7 +38,7 @@ public class PointClick : MonoBehaviour
             if (hit.collider != null)
             {
                 // Hace algo con el objeto alcanzado
-                hit.collider.gameObject.SendMessage("OnClick");
+                // hit.collider.gameObject.SendMessage("OnClick");                
             }
         }
     }

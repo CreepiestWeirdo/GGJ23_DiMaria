@@ -6,19 +6,19 @@ using UnityEngine.UI;
 
 public class PopUpController : MonoBehaviour
 {
-    public TMP_Text dialogBox;
+    public Image dialogBoxImage;
     public float timeSpan = 2f;
     public string message;
 
     void Awake()
     {
         // se oculta el canvas al inicio
-        dialogBox.gameObject.SetActive(false);
+        dialogBoxImage.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(1) && dialogBox.isActiveAndEnabled)
+        if (Input.GetMouseButton(1) && dialogBoxImage.isActiveAndEnabled)
         {
             StartCoroutine(Hide());
         }
@@ -27,14 +27,14 @@ public class PopUpController : MonoBehaviour
     private IEnumerator Hide()
     {
         yield return new WaitForSeconds(timeSpan);
-        dialogBox.gameObject.SetActive(false);
+        dialogBoxImage.gameObject.SetActive(false);
     }
 
     void OnMouseDown()
     {
         // mostramos el canvas y establecemos la descripcion
-        dialogBox.gameObject.SetActive(true);
-        dialogBox.text = message;
+        dialogBoxImage.gameObject.SetActive(true);
+        dialogBoxImage.GetComponentInChildren<TMP_Text>().text = message;
     }
 }
 

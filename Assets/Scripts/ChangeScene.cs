@@ -102,4 +102,17 @@ public class ChangeScene : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Change_To_Credits_After_Three_Seconds()
+    {
+        StartCoroutine(EndGame());
+        
+        currentScene = SceneManager.GetSceneByName(CREDITS);
+    }
+
+    private IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(CREDITS);
+    }
 }

@@ -18,6 +18,7 @@ public class Interactable : MonoBehaviour
         if(grabbable)
         {
             Inventory.Instance.Add(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
