@@ -34,10 +34,10 @@ public class ChangeScene : MonoBehaviour
             {
                 MusicManager._instance.SetMusic(MusicManager._instance.IntroMusic);
             }
-        //    MusicManager._instance.sfxList.Add(GameObject.Find("StartButton").GetComponent<AudioSource>());
-        //    MusicManager._instance.sfxList.Add(GameObject.Find("OptionsButton").GetComponent<AudioSource>());
-        //    MusicManager._instance.sfxList.Add(GameObject.Find("CreditsButton").GetComponent<AudioSource>());
-        //    MusicManager._instance.sfxList.Add(GameObject.Find("ExitGameButton").GetComponent<AudioSource>());
+            //MusicManager._instance.sfxList.Add(GameObject.Find("StartButton").GetComponent<AudioSource>());
+            //MusicManager._instance.sfxList.Add(GameObject.Find("OptionsButton").GetComponent<AudioSource>());
+            //MusicManager._instance.sfxList.Add(GameObject.Find("CreditsButton").GetComponent<AudioSource>());
+            //MusicManager._instance.sfxList.Add(GameObject.Find("ExitGameButton").GetComponent<AudioSource>());
         }
 
         if(scene.name == MAIN_GAME)
